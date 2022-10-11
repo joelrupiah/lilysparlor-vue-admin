@@ -1,11 +1,21 @@
 import { createApp } from 'vue'
-import App from './App.vue'
+import AdminMaster from './components/AdminMaster.vue'
 import router from './router'
 
-import './assets/main.css'
+import Vuesax from 'vuesax3'
+import ElementPlus from 'element-plus'
 
-const app = createApp(App)
+import 'element-plus/dist/index.css'
+import 'vuesax3/dist/vuesax.css'
+import 'material-icons/iconfont/material-icons.css'
+
+const app = createApp(AdminMaster)
+
+app.component('admin-master', AdminMaster)
+
+app.use(Vuesax)
+app.use(ElementPlus)
 
 app.use(router)
 
-app.mount('#app')
+app.mount('#admin')
