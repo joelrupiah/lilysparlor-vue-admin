@@ -58,29 +58,25 @@ const router = createRouter({
   routes
 })
 
-router.beforeEach((to, from, next) => {
+router.beforeEach((to, from, next)=>{
   if (to.matched.some(record => record.meta.requiresAdminAuth)) {
-    if (GET_ADMIN_TOKEN_GETTER) {
-      next({
-        path: '/admin-login'
-      })
-    }
-    else {
+      if (GET_ADMIN_TOKEN_GETTER) {
+          next({
+              name: 'AdminLogin'
+          })
+      } else {
+          next()
+      }
+  }else if(to.matched.some(record => record.meta.requiresAdminVisitor)){
+      if (!GET_ADMIN_TOKEN_GETTER) {
+          next({
+              name: 'Dashboard'
+          })
+      } else {
+          next()
+      }
+  }else{
       next()
-    }
-  }
-  else if (to.matched.some(record => record.meta.requiresAdminVisitor)) {
-    if (GET_ADMIN_TOKEN_GETTER) {
-      next({
-        path: '/'
-      })
-    }
-    else {
-      next()
-    }
-  }
-  else {
-    next()
   }
 })
 
