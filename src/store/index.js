@@ -2,7 +2,7 @@ import { createStore, createLogger, } from 'vuex'
 import admin from './modules/admin'
 import auth from './modules/auth/index'
 // import createPersistedState from "vuex-persistedstate"
-import VuexPersistence from 'vuex-persist'
+// import VuexPersistence from 'vuex-persist'
 
 // const debug = process.env.NODE_ENV !== 'production'
 
@@ -11,7 +11,7 @@ const store = createStore({
     auth,
     admin,
   },
-  plugins: [new VuexPersistence().plugin],
+  // plugins: [new VuexPersistence().plugin],
   // strict: debug,
   // plugins: debug ? [createLogger()] : []
   // plugins: [createPersistedState()]

@@ -1,19 +1,27 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import {
+  createRouter,
+  createWebHistory
+} from 'vue-router'
 // import store from '../store/index'
-import { GET_ADMIN_TOKEN_GETTER } from '../store/storeConstants'
+import {
+  GET_ADMIN_TOKEN_GETTER
+} from '../store/storeConstants'
 
-const routes = [
-  {
+const routes = [{
     path: '/',
     name: 'Dashboard',
     component: () => import('../components/pages/Dashboard.vue'),
-    meta: { requiresAdminAuth: true }
+    meta: {
+      requiresAdminAuth: true
+    }
   },
   {
     path: '/admin-login',
     name: 'AdminLogin',
     component: () => import('../components/pages/Auth/AdminLogin.vue'),
-    meta: { requiresAdminVisitor: true }
+    meta: {
+      requiresAdminVisitor: true
+    }
   },
   {
     path: '/profile',
@@ -58,25 +66,27 @@ const router = createRouter({
   routes
 })
 
-router.beforeEach((to, from, next)=>{
+router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta.requiresAdminAuth)) {
-      if (GET_ADMIN_TOKEN_GETTER) {
-          next({
-              name: 'AdminLogin'
-          })
-      } else {
-          next()
-      }
-  }else if(to.matched.some(record => record.meta.requiresAdminVisitor)){
-      if (!GET_ADMIN_TOKEN_GETTER) {
-          next({
-              name: 'Dashboard'
-          })
-      } else {
-          next()
-      }
-  }else{
+    // if (GET_ADMIN_TOKEN_GETTER) {
+    if (!localStorage.getItem('adminData') && from.path !== '/admin-login') {
+      next({
+        name: 'AdminLogin'
+      })
+    } else {
       next()
+    }
+  } else if (to.matched.some(record => record.meta.requiresAdminVisitor)) {
+    // if (!GET_ADMIN_TOKEN_GETTER) {
+    if (localStorage.getItem('adminData') && to.path !== '/') {
+      next({
+        name: 'Dashboard'
+      })
+    } else {
+      next()
+    }
+  } else {
+    next()
   }
 })
 

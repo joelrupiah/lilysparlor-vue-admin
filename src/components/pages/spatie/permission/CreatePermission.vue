@@ -13,10 +13,10 @@
                                         <label class="col-sm-3 col-form-label">Permission Name <span
                                                 class="text-danger">*</span> </label>
                                         <div class="col-sm-9">
-                                            <vs-input color="dark" 
-                                                label-placeholder="create users" 
+                                            <vs-input color="dark"
+                                                label-placeholder="create users"
                                                 size="small"
-                                                style="width:100%" 
+                                                style="width:100%"
                                                 v-model="form.name"
                                             />
                                         </div>
@@ -25,8 +25,8 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <vs-button color="dark" 
-                                        type="filled" 
+                                    <vs-button color="dark"
+                                        type="filled"
                                         size="small"
                                         @click.prevent="createPermission"
                                     >

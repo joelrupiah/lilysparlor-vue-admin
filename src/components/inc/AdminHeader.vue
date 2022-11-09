@@ -132,7 +132,10 @@
               Activity</a>
             <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-help-circle-outline text-primary me-2"></i>
               FAQ</a>
-            <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign Out</a>
+            <a class="dropdown-item" @click.prevent="logoutAdmin">
+              <i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>
+              Sign Out
+            </a>
           </div>
         </li>
       </ul>
@@ -146,19 +149,22 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex'
+import { GET_ADMIN_TOKEN_GETTER, LOGIN_ACTION } from '../../store/storeConstants'
 import Axios from 'axios'
 export default {
   name: 'AdminHeader',
   data() {
     return {}
   },
-  // methods: {
-  //   getAuthUser() {
-  //     Axios.get('http://127.0.0.1:8000/admin/user')
-  //       .then((response) => {
-  //         console.log(response)
-  //       })
-  //   }
-  // },
+  methods: {
+    ...mapActions('auth', {
+      logout: LOGIN_ACTION
+    }),
+    logoutAdmin(){
+      this.logout()
+      this.$router.push('/admin-login')
+    }
+  }
 }
 </script>
