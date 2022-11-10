@@ -46,7 +46,7 @@
 </template>
 
 <script>
-import Axios from 'axios'
+import Api from '../../../../requests/Api'
 export default {
     name: 'CreatePermission',
     data() {
@@ -58,7 +58,7 @@ export default {
     },
     methods: {
         createPermission(){
-            Axios.post('http://127.0.0.1:8000/api/admin/create-permission', this.form)
+            Api().post('/admin/create-permission', this.form)
                 .then((response) => {
                     console.log(response)
                 })

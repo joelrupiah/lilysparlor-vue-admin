@@ -46,7 +46,7 @@
 </template>
 
 <script>
-import Axios from 'axios'
+import Api from '../../../../requests/Api'
 export default {
     name: 'EditPermission',
     data() {
@@ -58,13 +58,14 @@ export default {
     },
     methods: {
         getPermission(){
-            Axios.get('http://127.0.0.1:8000/api/admin/get-permission/' + this.$route.params.id)
+            Api().get('/admin/get-permission/' + this.$route.params.id)
+            // Axios.get('http://127.0.0.1:8000/api/admin/get-permission/' + this.$route.params.id)
                 .then((response) => {
                     console.log(response)
                 })
         },
         createPermission(){
-            Axios.post('http://127.0.0.1:8000/api/admin/create-permission', this.form)
+            Api().post('/admin/create-permission', this.form)
                 .then((response) => {
                     console.log(response)
                 })

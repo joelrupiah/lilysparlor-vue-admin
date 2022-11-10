@@ -5,7 +5,7 @@ let BaseApi = Axios.create({
 })
 
 let Api = function() {
-  let token = localStorage.getItem('adminData')
+  let token = JSON.parse(localStorage.getItem('adminData')).token
 
   if (token) {
     BaseApi.defaults.headers.common['Authorization'] = `Bearer ${token}`

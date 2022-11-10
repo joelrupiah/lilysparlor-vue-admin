@@ -150,7 +150,7 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
-import { GET_ADMIN_TOKEN_GETTER, LOGIN_ACTION } from '../../store/storeConstants'
+import { GET_ADMIN_TOKEN_GETTER, LOGOUT_ACTION } from '../../store/storeConstants'
 import Axios from 'axios'
 export default {
   name: 'AdminHeader',
@@ -159,7 +159,7 @@ export default {
   },
   methods: {
     ...mapActions('auth', {
-      logout: LOGIN_ACTION
+      logout: LOGOUT_ACTION
     }),
     logoutAdmin(){
       this.logout()

@@ -60,7 +60,7 @@
 </template>
 
 <script>
-import Axios from 'axios'
+import Api from '../../../../requests/Api'
 import moment from "moment"
 
 export default {
@@ -72,7 +72,7 @@ export default {
     },
     methods: {
         getPermissions() {
-            Axios.get('http://127.0.0.1:8000/api/admin/get-permissions')
+            Api().get('/admin/get-permissions')
                 .then((response) => {
                     this.permissions = response.data.permissions
                 })
