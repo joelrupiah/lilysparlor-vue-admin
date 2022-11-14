@@ -34,7 +34,7 @@
                     <td>{{ index + 1 }}</td>
                     <td>{{ category.name }}</td>
                     <td>
-                      <img :src="fileLink(category.image)" alt="" style="width:40px;height:40px" />
+                      <img :src="category.image" alt="" style="width:40px;height:40px" />
                     </td>
                     <td class="text-success">
                       {{ moment(category.created_at).format("ddd MMM DD, YYYY [at] HH:mm a") }}
@@ -45,7 +45,6 @@
                           Edit
                         </vs-button>
                       </RouterLink>
-
                       <vs-button class="ms-1" color="danger" type="filled" size="small">
                         Delete
                       </vs-button>
@@ -87,9 +86,9 @@ export default {
       getAllCategoriesList: GET_CATEGORIES_ACTION
     }),
 
-    fileLink(name) {
-      return '/uploads/images/category/' + name
-    },
+    // fileLink(name) {
+    //   return '/uploads/images/category/' + name
+    // },
 
     getAllCategories() {
       this.getAllCategoriesList()

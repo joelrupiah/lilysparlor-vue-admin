@@ -13,23 +13,15 @@
                                         <label class="col-sm-3 col-form-label">Category Name <span
                                                 class="text-danger">*</span> </label>
                                         <div class="col-sm-9">
-                                            <vs-input color="dark"
-                                                label-placeholder="create users"
-                                                size="small"
-                                                style="width:100%"
-                                                v-model="form.name"
-                                            />
+                                            <vs-input color="dark" label-placeholder="create users" size="small"
+                                                style="width:100%" v-model="form.name" />
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <vs-button color="dark"
-                                        type="filled"
-                                        size="small"
-                                        @click.prevent="createCategory"
-                                    >
+                                    <vs-button color="dark" type="filled" size="small" @click.prevent="createCategory">
                                         Create Category
                                     </vs-button>
                                     <vs-button class="ms-2" color="warning" type="filled" size="small">
@@ -46,6 +38,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 import Api from '../../../requests/Api'
 export default {
     name: 'EditCategory',
@@ -57,6 +50,15 @@ export default {
         }
     },
     methods: {
+        ...mapActions('category', {
+            getSingleCategory: (GET_SINGLE_CATEGORY_ACTION, this.$route.params.id)
+        }),
+        getSingleCategoryMethod() { 
+            this.getSingleCategory()
+            // this.$store.dispatch('product/showSingleProduct', this.$route.params.slug)
+        }
+    },
+    mounted() {
 
     }
 }

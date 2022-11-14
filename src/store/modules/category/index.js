@@ -6,7 +6,9 @@ const category = {
   namespaced: true,
   state() {
     return {
-      categories: []
+      categories: [],
+      category: {},
+      errors: null
     }
   },
   mutations,
