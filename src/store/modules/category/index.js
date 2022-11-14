@@ -2,16 +2,16 @@ import actions from './actions'
 import getters from './getters'
 import mutations from './mutations'
 
-const role = {
+const category = {
   namespaced: true,
   state() {
     return {
-      name: ''
+      categories: []
     }
   },
-  actions,
   mutations,
-  getters
+  getters,
+  actions
 }
 
-export default role
+export default category

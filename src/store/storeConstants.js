@@ -35,11 +35,14 @@ export const GET_ADMINS = '[getters] get admins'
 
 // Category Operations
 export const CREATE_CATEGORY_ACTION = '[actions] create category'
+export const CREATE_CATEGORY = '[actions] do create category action'
 export const UPDATE_CATEGORY_ACTION = '[actions] update category'
 export const DELETE_CATEGORY_ACTION = '[actions] delete category'
-export const SET_CATEGORY_MUTATION = '[mutations] set category'
+export const GET_CATEGORIES_ACTION = '[actions] get categories action'
+export const SET_CATEGORIES_MUTATION = '[mutations] set category'
 export const GET_SINGLE_CATEGORY = '[getter] get single category'
-export const GET_CATEGORIES = '[getters] get categories'
+export const GET_CATEGORIES_MUTATION = '[getters] get categories mutation'
+export const GET_CATEGORIES_GETTER = '[getters] get categories getter'
 
 // Brand Operations
 export const CREATE_BRAND_ACTION = '[actions] create brand'

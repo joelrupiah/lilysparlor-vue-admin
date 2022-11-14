@@ -119,8 +119,8 @@
           <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
             <div class="dropdown-header text-center">
               <img class="img-md rounded-circle" src="images/faces/face8.jpg" alt="Profile image">
-              <p class="mb-1 mt-3 font-weight-semibold">Allen Moreno</p>
-              <p class="fw-light text-muted mb-0">allenmoreno@gmail.com</p>
+              <p class="mb-1 mt-3 font-weight-semibold">{{name}}</p>
+              <p class="fw-light text-muted mb-0">{{email}}</p>
             </div>
             <RouterLink to="/profile" class="dropdown-item">
               <i class="dropdown-item-icon mdi mdi-account-outline text-primary me-2"></i> My Profile <span
@@ -149,7 +149,7 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
+import { mapActions, mapGetters, mapState } from 'vuex'
 import { GET_ADMIN_TOKEN_GETTER, LOGOUT_ACTION } from '../../store/storeConstants'
 import Axios from 'axios'
 export default {
@@ -165,6 +165,12 @@ export default {
       this.logout()
       this.$router.push('/admin-login')
     }
+  },
+  computed: {
+    ...mapState('auth', [
+      'name',
+      'email'
+    ])
   }
 }
 </script>
