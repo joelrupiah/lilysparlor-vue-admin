@@ -84,7 +84,7 @@ export default {
       } catch (error) {
         // console.log(error)
       }
-      this.$router.push('/categories-list')
+      // this.$router.push('/categories-list')
     }
   }
 }
