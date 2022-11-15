@@ -1,4 +1,4 @@
-import { GET_CATEGORIES_GETTER } from "../../storeConstants";
+import { GET_CATEGORIES_GETTER, GET_SINGLE_CATEGORY_GETTER } from "../../storeConstants";
 // import { toRaw } from 'vue'
 
 export default {
@@ -9,4 +9,8 @@ export default {
       // return JSON.parse(categoriesState)
         return state.categories
     },
+
+    [GET_SINGLE_CATEGORY_GETTER]: (state) => {
+      return state.category
+    }
 }

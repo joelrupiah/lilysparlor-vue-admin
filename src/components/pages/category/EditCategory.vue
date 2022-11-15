@@ -38,8 +38,12 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 import Api from '../../../requests/Api'
+import {
+  GET_SINGLE_CATEGORY_ACTION,
+  GET_SINGLE_CATEGORY_GETTER
+} from '../../../store/storeConstants'
 export default {
     name: 'EditCategory',
     data() {
@@ -50,16 +54,21 @@ export default {
         }
     },
     methods: {
-        ...mapActions('category', {
-            getSingleCategory: (GET_SINGLE_CATEGORY_ACTION, this.$route.params.id)
-        }),
-        getSingleCategoryMethod() { 
-            this.getSingleCategory()
-            // this.$store.dispatch('product/showSingleProduct', this.$route.params.slug)
+        // ...mapActions('category', {
+        //     getSingleCategory: (GET_SINGLE_CATEGORY_ACTION, this.$route.params.id)
+        // }),
+        getSingleCategoryMethod() {
+            // this.getSingleCategory()
+            this.$store.dispatch('category/getSingleCategoryAction', this.$route.params.id)
         }
     },
+    created: {
+      ...mapGetters('category', {
+        singleCategory: GET_SINGLE_CATEGORY_GETTER
+      })
+    },
     mounted() {
-
+      this.getSingleCategoryMethod()
     }
 }
 </script>

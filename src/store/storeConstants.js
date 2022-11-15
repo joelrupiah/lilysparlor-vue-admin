@@ -46,6 +46,7 @@ export const GET_SINGLE_CATEGORY = '[getter] get single category'
 export const GET_CATEGORIES_MUTATION = '[mutations] get categories mutation'
 export const SET_CATEGORIES_ERRORS_MUTATION = '[mutations] get categories errors'
 export const GET_CATEGORIES_GETTER = '[getters] get categories getter'
+export const GET_SINGLE_CATEGORY_GETTER = '[getters] get single category getter'
 
 // Brand Operations
 export const CREATE_BRAND_ACTION = '[actions] create brand'

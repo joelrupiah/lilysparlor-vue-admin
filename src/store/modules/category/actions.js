@@ -31,11 +31,22 @@ export default {
     // }
   },
 
-  async [GET_SINGLE_CATEGORY_ACTION](context, payload) {
+  // async [GET_SINGLE_CATEGORY_ACTION](context, payload) {
+  //   let response = ''
+  //   try{
+  //     response = await Api().get('/get-single-category/' + payload)
+  //     context.commit(SET_SINGLE_CATEGORY_MUTATION, payload)
+  //   }
+  //   catch(error) {
+  //     console.log(error)
+  //   }
+  // },
+
+  async getSingleCategoryAction(context, payload){
     let response = ''
     try{
-      response = await Api().get('/get-single-category/' + payload)
-      context.commit(SET_SINGLE_CATEGORY_MUTATION, payload)
+      response = await Api().get(`/admin/get-single-category/${payload}`)
+      context.commit(SET_SINGLE_CATEGORY_MUTATION, response.data.category)
     }
     catch(error) {
       console.log(error)

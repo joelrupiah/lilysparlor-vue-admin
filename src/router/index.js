@@ -102,7 +102,7 @@ const routes = [{
     meta: {
       requiresAdminAuth: true
     }
-  }
+  },
 ]
 
 const router = createRouter({
