@@ -92,10 +92,6 @@ export default {
       reader.readAsDataURL(file);
     },
 
-    resetErrors() {
-
-    },
-
     async createCategory() {
       this.loading = true
       try {
@@ -104,16 +100,13 @@ export default {
           image: this.form.image
         })
         this.loading = false
-        // this.clearData()
-        // this.$router.push('/categories-list')
+        this.clearData()
       } catch (error) {
-        // console.log(error)
         if (error.response.status === 422) {
           this.errors = error.response.data.errors
         }
         this.loading = false
       }
-      // this.$router.push('/categories-list')
     }
 
   },
