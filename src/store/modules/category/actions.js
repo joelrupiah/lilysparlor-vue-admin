@@ -53,7 +53,6 @@ export default {
     let response = ''
     try {
       response = await Api().delete(`/admin/delete-category/${payload.id}`)
-      context.commit(SET_CATEGORIES_MUTATION)
     } catch (error) {
       console.log(error)
     }

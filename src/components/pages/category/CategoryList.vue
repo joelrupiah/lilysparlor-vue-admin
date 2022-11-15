@@ -41,13 +41,14 @@
                     </td>
                     <td>
                       <RouterLink :to="`/edit-categories/${category.id}`">
-                        <vs-button color="warning" type="filled" size="small">
+                        <el-button size="small" style="background:orange;color:white">
                           Edit
-                        </vs-button>
+                        </el-button>
                       </RouterLink>
-                      <vs-button class="ms-1" color="danger" type="filled" size="small" @click.prevent="deleteCategory(category)">
-                        Delete
-                      </vs-button>
+                      <el-button size="small" style="background:red;color:white"
+                        @click.prevent="deleteCategory(category)">
+                        {{ loading ? 'Deleting data.....' : 'Delete' }}
+                      </el-button>
                     </td>
                   </tr>
                 </tbody>
@@ -88,12 +89,12 @@ export default {
     }),
 
     async deleteCategory(id) {
-      // this.loading = true
+      this.loading = true
       await this.$store.dispatch('category/deleteCategoryAction', id)
-      //   .then((response) => {
-      //     console.log(response)
-      //   })
-      // this.loading = false
+        .then(() => {
+          this.getAllCategories()
+        })
+      this.loading = false
     },
 
     getAllCategories() {
