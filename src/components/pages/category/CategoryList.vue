@@ -1,64 +1,64 @@
 <template>
-<div class="content-wrapper">
-  <div class="row">
-    <div class="col-md-12 grid-margin stretch-card">
-      <div class="card">
-        <div class="card-body">
-          <div class="d-flex justify-content-between">
-            <h4 class="card-title">Categories List</h4>
-            <vs-input icon-after="true" label-placeholder="Search" icon="search" color="dark" placeholder="Search" />
-          </div>
+  <div class="content-wrapper">
+    <div class="row">
+      <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex justify-content-between">
+              <h4 class="card-title">Categories List</h4>
+              <vs-input icon-after="true" label-placeholder="Search" icon="search" color="dark" placeholder="Search" />
+            </div>
 
-          <p class="card-description">
-            <RouterLink to="/create-categories">
-              <vs-button color="dark" type="filled" size="small">
-                Create Category
-              </vs-button>
-            </RouterLink>
+            <p class="card-description">
+              <RouterLink to="/create-categories">
+                <vs-button color="dark" type="filled" size="small">
+                  Create Category
+                </vs-button>
+              </RouterLink>
 
-          </p>
+            </p>
 
-          <div class="table-responsive">
-            <table class="table table-hover">
-              <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Name</th>
-                  <th>Image</th>
-                  <th>Date Created</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr v-for="(category, index) in categories">
-                  <td>{{ index + 1 }}</td>
-                  <td>{{ category.name }}</td>
-                  <td>
-                    <img :src="category.image" alt="" style="width:40px;height:40px" />
-                  </td>
-                  <td class="text-success">
-                    {{ moment(category.created_at).format("ddd MMM DD, YYYY [at] HH:mm a") }}
-                  </td>
-                  <td>
-                    <RouterLink :to="`/edit-categories/${category.id}`">
-                      <vs-button color="warning" type="filled" size="small">
-                        Edit
+            <div class="table-responsive">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Image</th>
+                    <th>Date Created</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="(category, index) in categories">
+                    <td>{{ index + 1 }}</td>
+                    <td>{{ category.name }}</td>
+                    <td>
+                      <img :src="category.image" alt="" style="width:40px;height:40px" />
+                    </td>
+                    <td class="text-success">
+                      {{ moment(category.created_at).format("ddd MMM DD, YYYY [at] HH:mm a") }}
+                    </td>
+                    <td>
+                      <RouterLink :to="`/edit-categories/${category.id}`">
+                        <vs-button color="warning" type="filled" size="small">
+                          Edit
+                        </vs-button>
+                      </RouterLink>
+                      <vs-button class="ms-1" color="danger" type="filled" size="small" @click.prevent="deleteCategory(category)">
+                        Delete
                       </vs-button>
-                    </RouterLink>
-                    <vs-button class="ms-1" color="danger" type="filled" size="small">
-                      Delete
-                    </vs-button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <el-pagination small background layout="prev, pager, next" :total="50" class="mt-4 ms-3" />
           </div>
-          <el-pagination small background layout="prev, pager, next" :total="50" class="mt-4 ms-3" />
         </div>
       </div>
     </div>
   </div>
-</div>
 </template>
 
 <script>
@@ -77,8 +77,9 @@ export default {
   name: 'CategoryList',
   data() {
     return {
+      loading: false,
+      toggleDeleteModal: false,
       moment: moment
-      // categories: []
     }
   },
   methods: {
@@ -86,9 +87,14 @@ export default {
       getAllCategoriesList: GET_CATEGORIES_ACTION
     }),
 
-    // fileLink(name) {
-    //   return '/uploads/images/category/' + name
-    // },
+    async deleteCategory(id) {
+      // this.loading = true
+      await this.$store.dispatch('category/deleteCategoryAction', id)
+      //   .then((response) => {
+      //     console.log(response)
+      //   })
+      // this.loading = false
+    },
 
     getAllCategories() {
       this.getAllCategoriesList()

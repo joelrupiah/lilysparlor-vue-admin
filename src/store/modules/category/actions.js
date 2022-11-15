@@ -17,38 +17,44 @@ export default {
       response = await Api().post('/admin/create-category', payload)
     }
     catch (error) {
-      // console.log(error.response.data.errors)
-      // console.log(error.response.data.errors.name[0])
-      // console.log(error.response.data.errors.name[0])
       context.commit(SET_CATEGORIES_ERRORS_MUTATION, error.response.data.errors)
     }
     if (response === 201) {
       context.commit(SET_CATEGORIES_MUTATION, payload)
     }
 
-    // if (response === 422) {
-    //   context.commit(SET_CATEGORIES_ERRORS_MUTATION, payload)
-    // }
   },
 
-  // async [GET_SINGLE_CATEGORY_ACTION](context, payload) {
-  //   let response = ''
-  //   try{
-  //     response = await Api().get('/get-single-category/' + payload)
-  //     context.commit(SET_SINGLE_CATEGORY_MUTATION, payload)
-  //   }
-  //   catch(error) {
-  //     console.log(error)
-  //   }
-  // },
-
-  async getSingleCategoryAction(context, payload){
+  async getSingleCategoryAction(context, payload) {
     let response = ''
-    try{
+    try {
       response = await Api().get(`/admin/get-single-category/${payload}`)
-      context.commit(SET_SINGLE_CATEGORY_MUTATION, response.data.category)
+      return response
     }
-    catch(error) {
+    catch (error) {
+      console.log(error)
+    }
+  },
+
+  async updateCategoryAction(context, payload) {
+    let response = ''
+    try {
+      response = await Api().post(`/admin/edit-category/${payload.id}`, payload)
+      context.commit(SET_CATEGORIES_MUTATION, response.data.categories)
+      return response
+    }
+    catch (error) {
+      console.log(error)
+    }
+  },
+
+  async deleteCategoryAction(context, payload) {
+    // console.log(payload.id)
+    let response = ''
+    try {
+      response = await Api().delete(`/admin/delete-category/${payload.id}`)
+      context.commit(SET_CATEGORIES_MUTATION)
+    } catch (error) {
       console.log(error)
     }
   },
@@ -57,13 +63,10 @@ export default {
     let response = ''
     try {
       response = await Api().get('/admin/get-categories')
-      // console.log(response);
     } catch (error) {
-      // console.log(error)
-      // console.log(error.response.data.error[0])
+      console.log(error)
     }
     if (response.status === 200) {
-      // console.log(response);
       context.commit(SET_CATEGORIES_MUTATION, response.data.categories)
     }
   },
