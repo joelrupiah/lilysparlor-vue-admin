@@ -80,6 +80,30 @@ const routes = [{
     }
   },
   {
+    path: '/classes-list',
+    name: 'ClassList',
+    component: () => import('../components/pages/class/ClassList.vue'),
+    meta: {
+      requiresAdminAuth: true
+    }
+  },
+  {
+    path: '/create-classes',
+    name: 'CreateClass',
+    component: () => import('../components/pages/class/CreateClass.vue'),
+    meta: {
+      requiresAdminAuth: true
+    }
+  },
+  {
+    path: '/edit-classes/:id',
+    name: 'EditClass',
+    component: () => import('../components/pages/class/EditClass.vue'),
+    meta: {
+      requiresAdminAuth: true
+    }
+  },
+  {
     path: '/categories-list',
     name: 'CategoryList',
     component: () => import('../components/pages/category/CategoryList.vue'),
@@ -99,6 +123,30 @@ const routes = [{
     path: '/edit-categories/:id',
     name: 'EditCategory',
     component: () => import('../components/pages/category/EditCategory.vue'),
+    meta: {
+      requiresAdminAuth: true
+    }
+  },
+  {
+    path: '/products-list',
+    name: 'ProductList',
+    component: () => import('../components/pages/product/ProductList.vue'),
+    meta: {
+      requiresAdminAuth: true
+    }
+  },
+  {
+    path: '/create-products',
+    name: 'CreateProduct',
+    component: () => import('../components/pages/product/CreateProduct.vue'),
+    meta: {
+      requiresAdminAuth: true
+    }
+  },
+  {
+    path: '/edit-products/:id',
+    name: 'EditProduct',
+    component: () => import('../components/pages/product/EditProduct.vue'),
     meta: {
       requiresAdminAuth: true
     }

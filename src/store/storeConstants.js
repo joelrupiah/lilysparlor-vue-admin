@@ -33,6 +33,15 @@ export const SET_ADMIN_MUTATION = '[mutations] set admin'
 export const GET_SINGLE_ADMIN = '[getter] get single admin'
 export const GET_ADMINS = '[getters] get admins'
 
+// Product Class Operations
+export const CREATE_CLASS_ACTION = '[actions] create product class action'
+export const SET_CLASSES_MUTATION = '[mutations] set product class mutation'
+export const GET_CLASSES_ACTION = '[actions] get product classes action'
+export const SET_CLASSES_ERRORS_MUTATION = '[mutation] set product classes error mutation'
+export const GET_CLASSES_GETTER = '[getters] get classes getter'
+export const GET_SINGLE_CLASS_GETTER = '[getters] get single class getter'
+export const SET_SINGLE_CLASS_MUTATION = '[mutations] set single class mutation'
+
 // Category Operations
 export const CREATE_CATEGORY_ACTION = '[actions] create category'
 export const CREATE_CATEGORY = '[actions] do create category action'

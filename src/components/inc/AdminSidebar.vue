@@ -10,18 +10,53 @@
           </li>
           <li class="nav-item nav-category">Components</li>
           <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="collapse" href="#permissions" aria-expanded="false" aria-controls="permissions">
+            <a class="nav-link" data-bs-toggle="collapse" href="#classes" aria-expanded="false" aria-controls="classes">
+              <i class="menu-icon mdi mdi-floor-plan"></i>
+              <span class="menu-title">Classes</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="classes">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item">
+                  <RouterLink class="nav-link" to="classes-list">Classes List</RouterLink>
+                </li>
+                <li class="nav-item">
+                  <RouterLink class="nav-link" to="create-classes">Create Classes</RouterLink>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#categories" aria-expanded="false" aria-controls="categories">
               <i class="menu-icon mdi mdi-floor-plan"></i>
               <span class="menu-title">Categories</span>
               <i class="menu-arrow"></i>
             </a>
-            <div class="collapse" id="permissions">
+            <div class="collapse" id="categories">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item">
                   <RouterLink class="nav-link" to="categories-list">Categories List</RouterLink>
                 </li>
                 <li class="nav-item">
                   <RouterLink class="nav-link" to="create-categories">Create Categories</RouterLink>
+                </li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#products" aria-expanded="false" aria-controls="products">
+              <i class="menu-icon mdi mdi-floor-plan"></i>
+              <span class="menu-title">Products</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="products">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item">
+                  <RouterLink class="nav-link" to="products-list">Products List</RouterLink>
+                </li>
+                <li class="nav-item">
+                  <RouterLink class="nav-link" to="create-products">Create Products</RouterLink>
                 </li>
               </ul>
             </div>
@@ -62,6 +97,10 @@
               </ul>
             </div>
           </li>
+
+          <li class="nav-item nav-category">Product Settings</li>
+          
+          
         </ul>
       </nav>
       <!-- partial -->
