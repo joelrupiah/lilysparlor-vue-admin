@@ -62,6 +62,7 @@ export default {
     let response = ''
     try {
       response = await Api().get('/admin/get-categories')
+      return response
     } catch (error) {
       console.log(error)
     }

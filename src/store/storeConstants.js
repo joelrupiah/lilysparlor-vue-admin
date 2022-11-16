@@ -67,11 +67,12 @@ export const GET_BRANDS = '[getters] get brands'
 
 // Product Operations
 export const CREATE_PRODUCT_ACTION = '[actions] create product'
-export const UPDATE_PRODUCT_ACTION = '[actions] update product'
-export const DELETE_PRODUCT_ACTION = '[actions] delete product'
-export const SET_PRODUCT_MUTATION = '[mutations] set product'
-export const GET_SINGLE_PRODUCT = '[getter] get single product'
-export const GET_PRODUCTS = '[getters] get products'
+export const GET_PRODUCTS_ACTION = '[actions] get products action'
+export const SET_PRODUCTS_MUTATION = '[mutations] set products mutations'
+export const SET_SINGLE_PRODUCT_MUTATION = '[mutations] set single product mutations'
+export const SET_PRODUCTS_ERRORS_MUTATION = '[mutations] set products errors mutations'
+export const GET_SINGLE_PRODUCT_GETTER = '[getter] get single product getter'
+export const GET_PRODUCTS_GETTER = '[getters] get products getter'
 
 // Cart Operations
 
