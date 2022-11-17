@@ -29,6 +29,7 @@ export default {
     let response = ''
     try {
       response = await Api().get(`/admin/get-single-category/${payload}`)
+      console.log(response)
       return response
     }
     catch (error) {
@@ -62,12 +63,11 @@ export default {
     let response = ''
     try {
       response = await Api().get('/admin/get-categories')
+      context.commit(SET_CATEGORIES_MUTATION, response.data.categories)
       return response
     } catch (error) {
       console.log(error)
     }
-    if (response.status === 200) {
-      context.commit(SET_CATEGORIES_MUTATION, response.data.categories)
-    }
+    
   },
 }

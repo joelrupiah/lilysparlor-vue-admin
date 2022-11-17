@@ -25,6 +25,7 @@ export default {
     let response = ''
     try {
       response = await Api().get(`/admin/get-single-product/${payload}`)
+      console.log(response)
       return response
     }
     catch (error) {
@@ -58,11 +59,10 @@ export default {
     let response = ''
     try {
       response = await Api().get('/admin/get-products')
+      context.commit(SET_PRODUCTS_MUTATION, response.data.products)
+      return response
     } catch (error) {
       console.log(error)
-    }
-    if (response.status === 200) {
-      context.commit(SET_PRODUCTS_MUTATION, response.data.products)
     }
   },
 }

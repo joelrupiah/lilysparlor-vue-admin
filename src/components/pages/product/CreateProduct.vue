@@ -12,14 +12,16 @@
                                     <div class="form-group row">
                                         <div class="col-md-6">
                                             <div class="centerx labelx">
-                                                <p style="margin-left: 10px">Product Name</p>
+                                                <p style="margin-left: 10px">Product Name<span
+                                                        class="text-danger">*</span></p>
                                                 <el-input v-model="form.name" class="w-100 m-2" size="small"
                                                     placeholder="Input Product Name" />
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="centerx labelx">
-                                                <p style="margin-left: 10px">Product Price</p>
+                                                <p style="margin-left: 10px">Product Price<span
+                                                        class="text-danger">*</span></p>
                                                 <el-input v-model="form.price" class="w-100 m-2" size="small"
                                                     placeholder="Input Product Price" />
                                             </div>
@@ -28,7 +30,8 @@
                                     <div class="form-group row">
                                         <div class="col-md-6">
                                             <div class="centerx labelx">
-                                                <p style="margin-left: 10px">Select Category</p>
+                                                <p style="margin-left: 10px">Select Category<span
+                                                        class="text-danger">*</span></p>
                                                 <el-select v-model="form.category_id" class="w-100 m-2"
                                                     placeholder="Select Category" size="small">
                                                     <el-option v-for="category in categories" :key="category.id"
@@ -48,14 +51,36 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
+                                        <div class="col-md-12">
+                                            <div class="centerx labelx">
+                                                <p style="margin-left: 10px">Small Description<span
+                                                        class="text-danger">*</span></p>
+                                                <!-- <mavon-editor v-model="form.description"/> -->
+                                                <ckeditor :editor="editor" v-model="form.description"
+                                                    :config="editorConfig"></ckeditor>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-md-12">
+                                            <div class="centerx labelx">
+                                                <p style="margin-left: 10px">Main Description<span
+                                                        class="text-danger">*</span></p>
+                                                <!-- <mavon-editor v-model="form.description"/> -->
+                                                <ckeditor :editor="editor" v-model="form.mainDescription"
+                                                    :config="editorConfig"></ckeditor>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Select Image One <span
                                                 class="text-danger">*</span>
                                         </label>
                                         <div class="col-sm-6">
                                             <vs-input class="mb-2" border success type="file"
-                                                @change="loadCategoryImageOne($event)">
+                                                @change="loadProductImageOne($event)">
                                             </vs-input>
-                                            <span class="text-danger text-sm" v-for="error in getErrors.image"
+                                            <span class="text-danger text-sm" v-for="error in getErrors.imageone"
                                                 v-if="getErrors">
                                                 {{ error }}
                                             </span>
@@ -65,6 +90,43 @@
                                                     style="width: 150px; height: 150px" /></span>
                                         </div>
                                     </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 col-form-label">Select Image Two <span
+                                                class="text-danger">*</span>
+                                        </label>
+                                        <div class="col-sm-6">
+                                            <vs-input class="mb-2" border success type="file"
+                                                @change="loadProductImageTwo($event)">
+                                            </vs-input>
+                                            <span class="text-danger text-sm" v-for="error in getErrors.imageTwo"
+                                                v-if="getErrors">
+                                                {{ error }}
+                                            </span>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <span><img :src="form.imageTwo" alt=""
+                                                    style="width: 150px; height: 150px" /></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 col-form-label">Select Image Three <span
+                                                class="text-danger">*</span>
+                                        </label>
+                                        <div class="col-sm-6">
+                                            <vs-input class="mb-2" border success type="file"
+                                                @change="loadProductImageThree($event)">
+                                            </vs-input>
+                                            <span class="text-danger text-sm" v-for="error in getErrors.imageThree"
+                                                v-if="getErrors">
+                                                {{ error }}
+                                            </span>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <span><img :src="form.imageThree" alt=""
+                                                    style="width: 150px; height: 150px" /></span>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
                             <div class="row">
@@ -96,6 +158,7 @@ import {
 import {
     mapActions, mapState
 } from 'vuex'
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 export default {
     name: 'CreateProduct',
     data() {
@@ -106,9 +169,17 @@ export default {
                 name: '',
                 price: '',
                 category_id: '',
-                imageOne: ''
+                description: '',
+                mainDescription: '',
+                imageOne: '',
+                imageTwo: '',
+                imageThree: ''
             },
-            errors: []
+            errors: [],
+            editor: ClassicEditor,
+            editorConfig: {
+                // The configuration of the editor.
+            }
         }
     },
     methods: {
@@ -133,11 +204,29 @@ export default {
                 })
         },
 
-        loadCategoryImageOne(e) {
+        loadProductImageOne(e) {
             let file = e.target.files[0];
             let reader = new FileReader();
             reader.onload = (e) => {
                 this.form.imageOne = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        },
+
+        loadProductImageTwo(e) {
+            let file = e.target.files[0];
+            let reader = new FileReader();
+            reader.onload = (e) => {
+                this.form.imageTwo = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        },
+
+        loadProductImageThree(e) {
+            let file = e.target.files[0];
+            let reader = new FileReader();
+            reader.onload = (e) => {
+                this.form.imageThree = e.target.result;
             };
             reader.readAsDataURL(file);
         },
@@ -147,10 +236,16 @@ export default {
             try {
                 await this.createProductAction({
                     name: this.form.name,
-                    imageOne: this.form.imageOne
+                    price: this.form.price,
+                    category_id: this.form.category_id,
+                    description: this.form.description,
+                    mainDescription: this.form.mainDescription,
+                    imageOne: this.form.imageOne,
+                    imageTwo: this.form.imageTwo,
+                    imageThree: this.form.imageThree
                 })
                 this.loading = false
-                this.clearData()
+                // this.clearData()
             } catch (error) {
                 if (error.response.status === 422) {
                     this.errors = error.response.data.errors
@@ -170,4 +265,10 @@ export default {
     }
 }
 </script>
+
+<style>
+.ck-editor__editable {
+    min-height: 100px;
+}
+</style>
   

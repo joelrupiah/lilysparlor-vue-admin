@@ -58,11 +58,10 @@ export default {
     let response = ''
     try {
       response = await Api().get('/admin/get-classes')
+      context.commit(SET_CLASSES_MUTATION, response.data.productclasses)
+      return response
     } catch (error) {
       console.log(error)
-    }
-    if (response.status === 200) {
-      context.commit(SET_CLASSES_MUTATION, response.data.productclasses)
     }
   },
 }
