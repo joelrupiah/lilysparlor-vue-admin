@@ -61,15 +61,6 @@ export default {
             loginAdmin: LOGIN_ACTION
         }),
         async login() {
-            // validate
-            // let validations = new LoginValidations(this.email, this.password)
-
-            // this.errors = validations.checkValidations()
-
-            // if ('email' in this.errors || 'password' in this.errors) {
-            //     return false
-            // }
-            // login admin
             try {
                 await this.loginAdmin({ email: this.form.email, password: this.form.password })
             } catch (error) {

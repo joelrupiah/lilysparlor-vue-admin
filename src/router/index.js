@@ -7,7 +7,8 @@ import {
   GET_ADMIN_TOKEN_GETTER
 } from '../store/storeConstants'
 
-const routes = [{
+const routes = [
+  {
     path: '/',
     name: 'Dashboard',
     component: () => import('../components/pages/Dashboard.vue'),
