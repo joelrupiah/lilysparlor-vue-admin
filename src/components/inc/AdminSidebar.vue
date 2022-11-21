@@ -62,6 +62,24 @@
             </div>
           </li>
 
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#services" aria-expanded="false" aria-controls="services">
+              <i class="menu-icon mdi mdi-floor-plan"></i>
+              <span class="menu-title">Services</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="services">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item">
+                  <RouterLink class="nav-link" to="services-list">Services List</RouterLink>
+                </li>
+                <li class="nav-item">
+                  <RouterLink class="nav-link" to="create-services">Create Services</RouterLink>
+                </li>
+              </ul>
+            </div>
+          </li>
+
           <li class="nav-item nav-category">Roles and Permissions</li>
           <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#permissions" aria-expanded="false" aria-controls="permissions">
@@ -99,8 +117,8 @@
           </li>
 
           <li class="nav-item nav-category">Product Settings</li>
-          
-          
+
+
         </ul>
       </nav>
       <!-- partial -->

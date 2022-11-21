@@ -8,6 +8,7 @@ import permission from './modules/spatie/permissions/index'
 import category from './modules/category/index'
 import proclass from './modules/class/index'
 import product from './modules/product/index'
+import service from './modules/service/index'
 // import createPersistedState from "vuex-persistedstate"
 // import VuexPersistence from 'vuex-persist'
 
@@ -20,7 +21,8 @@ const store = createStore({
     permission,
     category,
     proclass,
-    product
+    product,
+    service
   },
   // plugins: [new VuexPersistence().plugin],
   // strict: debug,

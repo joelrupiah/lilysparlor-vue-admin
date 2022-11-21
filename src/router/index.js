@@ -152,6 +152,30 @@ const routes = [
       requiresAdminAuth: true
     }
   },
+  {
+    path: '/services-list',
+    name: 'ServiceList',
+    component: () => import('../components/pages/service/ServiceList.vue'),
+    meta: {
+      requiresAdminAuth: true
+    }
+  },
+  {
+    path: '/create-services',
+    name: 'CreateService',
+    component: () => import('../components/pages/service/CreateService.vue'),
+    meta: {
+      requiresAdminAuth: true
+    }
+  },
+  {
+    path: '/edit-services/:id',
+    name: 'EditService',
+    component: () => import('../components/pages/service/EditService.vue'),
+    meta: {
+      requiresAdminAuth: true
+    }
+  },
 ]
 
 const router = createRouter({

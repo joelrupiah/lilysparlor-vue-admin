@@ -74,16 +74,11 @@ export const SET_PRODUCTS_ERRORS_MUTATION = '[mutations] set products errors mut
 export const GET_SINGLE_PRODUCT_GETTER = '[getter] get single product getter'
 export const GET_PRODUCTS_GETTER = '[getters] get products getter'
 
-// Cart Operations
-
-
-// Checkout Operations
-
-
-// Booking Operations
-
-
-// Video Conferencing Operations
-
-
-// Payments Operations
+// Service Operations
+export const CREATE_SERVICE_ACTION = '[actions] create service'
+export const GET_SERVICES_ACTION = '[actions] get services action'
+export const SET_SERVICES_MUTATION = '[mutations] set services mutations'
+export const SET_SINGLE_SERVICE_MUTATION = '[mutations] set single service mutations'
+export const SET_SERVICES_ERRORS_MUTATION = '[mutations] set services errors mutations'
+export const GET_SINGLE_SERVICE_GETTER = '[getter] get single service getter'
+export const GET_SERVICES_GETTER = '[getters] get services getter'
