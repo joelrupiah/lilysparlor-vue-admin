@@ -193,7 +193,7 @@ const routes = [
     }
   },
   {
-    path: '/edit-bookings/:id',
+    path: '/edit-bookings/:order_id',
     name: 'EditBooking',
     component: () => import('../components/pages/booking/EditBooking.vue'),
     meta: {
