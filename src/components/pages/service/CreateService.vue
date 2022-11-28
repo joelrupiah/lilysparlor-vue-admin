@@ -57,13 +57,13 @@
                                             <vs-input class="mb-2" border success type="file"
                                                 @change="loadServiceImageOne($event)">
                                             </vs-input>
-                                            <span class="text-danger text-sm" v-for="error in getErrors.imageone"
+                                            <span class="text-danger text-sm" v-for="error in getErrors.image_one"
                                                 v-if="getErrors">
                                                 {{ error }}
                                             </span>
                                         </div>
                                         <div class="col-md-3">
-                                            <span><img :src="form.imageOne" alt=""
+                                            <span><img :src="form.image_one" alt=""
                                                     style="width: 150px; height: 150px" /></span>
                                         </div>
                                     </div>
@@ -75,13 +75,13 @@
                                             <vs-input class="mb-2" border success type="file"
                                                 @change="loadServiceImageTwo($event)">
                                             </vs-input>
-                                            <span class="text-danger text-sm" v-for="error in getErrors.imageTwo"
+                                            <span class="text-danger text-sm" v-for="error in getErrors.image_two"
                                                 v-if="getErrors">
                                                 {{ error }}
                                             </span>
                                         </div>
                                         <div class="col-md-3">
-                                            <span><img :src="form.imageTwo" alt=""
+                                            <span><img :src="form.image_two" alt=""
                                                     style="width: 150px; height: 150px" /></span>
                                         </div>
                                     </div>
@@ -93,13 +93,13 @@
                                             <vs-input class="mb-2" border success type="file"
                                                 @change="loadServiceImageThree($event)">
                                             </vs-input>
-                                            <span class="text-danger text-sm" v-for="error in getErrors.imageThree"
+                                            <span class="text-danger text-sm" v-for="error in getErrors.image_three"
                                                 v-if="getErrors">
                                                 {{ error }}
                                             </span>
                                         </div>
                                         <div class="col-md-3">
-                                            <span><img :src="form.imageThree" alt=""
+                                            <span><img :src="form.image_three" alt=""
                                                     style="width: 150px; height: 150px" /></span>
                                         </div>
                                     </div>
@@ -146,9 +146,9 @@ export default {
                 price: '',
                 description: '',
                 mainDescription: '',
-                imageOne: '',
-                imageTwo: '',
-                imageThree: ''
+                image_one: '',
+                image_two: '',
+                image_three: ''
             },
             errors: [],
             editor: ClassicEditor,
@@ -166,7 +166,7 @@ export default {
             let file = e.target.files[0];
             let reader = new FileReader();
             reader.onload = (e) => {
-                this.form.imageOne = e.target.result;
+                this.form.image_one = e.target.result;
             };
             reader.readAsDataURL(file);
         },
@@ -175,7 +175,7 @@ export default {
             let file = e.target.files[0];
             let reader = new FileReader();
             reader.onload = (e) => {
-                this.form.imageTwo = e.target.result;
+                this.form.image_two = e.target.result;
             };
             reader.readAsDataURL(file);
         },
@@ -184,7 +184,7 @@ export default {
             let file = e.target.files[0];
             let reader = new FileReader();
             reader.onload = (e) => {
-                this.form.imageThree = e.target.result;
+                this.form.image_three = e.target.result;
             };
             reader.readAsDataURL(file);
         },
@@ -197,9 +197,9 @@ export default {
                     price: this.form.price,
                     description: this.form.description,
                     mainDescription: this.form.mainDescription,
-                    imageOne: this.form.imageOne,
-                    imageTwo: this.form.imageTwo,
-                    imageThree: this.form.imageThree
+                    image_one: this.form.image_one,
+                    image_two: this.form.image_two,
+                    image_three: this.form.image_three
                 })
                 this.loading = false
                 // this.clearData()

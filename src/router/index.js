@@ -176,6 +176,30 @@ const routes = [
       requiresAdminAuth: true
     }
   },
+  {
+    path: '/bookings-list',
+    name: 'BookingList',
+    component: () => import('../components/pages/booking/BookingList.vue'),
+    meta: {
+      requiresAdminAuth: true
+    }
+  },
+  {
+    path: '/create-bookings',
+    name: 'CreateBooking',
+    component: () => import('../components/pages/booking/CreateBooking.vue'),
+    meta: {
+      requiresAdminAuth: true
+    }
+  },
+  {
+    path: '/edit-bookings/:id',
+    name: 'EditBooking',
+    component: () => import('../components/pages/booking/EditBooking.vue'),
+    meta: {
+      requiresAdminAuth: true
+    }
+  },
 ]
 
 const router = createRouter({

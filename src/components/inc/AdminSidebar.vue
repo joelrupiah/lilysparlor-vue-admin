@@ -80,6 +80,24 @@
             </div>
           </li>
 
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#bookings" aria-expanded="false" aria-controls="bookings">
+              <i class="menu-icon mdi mdi-floor-plan"></i>
+              <span class="menu-title">Bookings</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="bookings">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item">
+                  <RouterLink class="nav-link" to="bookings-list">Bookings List</RouterLink>
+                </li>
+                <li class="nav-item">
+                  <RouterLink class="nav-link" to="create-bookings">Create Booking</RouterLink>
+                </li>
+              </ul>
+            </div>
+          </li>
+
           <li class="nav-item nav-category">Roles and Permissions</li>
           <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#permissions" aria-expanded="false" aria-controls="permissions">
