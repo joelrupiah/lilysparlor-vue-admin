@@ -33,6 +33,30 @@ const routes = [
     }
   },
   {
+    path: '/admins-list',
+    name: 'AdminsList',
+    component: () => import('../components/pages/admin/AdminList.vue'),
+    meta: {
+      requiresAdminAuth: true
+    }
+  },
+  {
+    path: '/create-admin',
+    name: 'CreateAdmin',
+    component: () => import('../components/pages/admin/CreateAdmin.vue'),
+    meta: {
+      requiresAdminAuth: true
+    }
+  },
+  {
+    path: '/edit-admin/:id',
+    name: 'EditAdmin',
+    component: () => import('../components/pages/admin/EditAdmin.vue'),
+    meta: {
+      requiresAdminAuth: true
+    }
+  },
+  {
     path: '/users-list',
     name: 'UsersList',
     component: () => import('../components/pages/users/UsersList.vue'),

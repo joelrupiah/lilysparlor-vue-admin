@@ -100,6 +100,23 @@
 
           <li class="nav-item nav-category">Roles and Permissions</li>
           <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#admins" aria-expanded="false" aria-controls="admins">
+              <i class="menu-icon mdi mdi-floor-plan"></i>
+              <span class="menu-title">Admins</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="admins">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item">
+                  <RouterLink class="nav-link" to="admins-list">Admins List</RouterLink>
+                </li>
+                <li class="nav-item">
+                  <RouterLink class="nav-link" to="create-admin">Create Admin</RouterLink>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#users" aria-expanded="false" aria-controls="users">
               <i class="menu-icon mdi mdi-floor-plan"></i>
               <span class="menu-title">Users</span>
