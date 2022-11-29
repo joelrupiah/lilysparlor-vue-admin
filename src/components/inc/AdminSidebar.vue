@@ -100,6 +100,20 @@
 
           <li class="nav-item nav-category">Roles and Permissions</li>
           <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#users" aria-expanded="false" aria-controls="users">
+              <i class="menu-icon mdi mdi-floor-plan"></i>
+              <span class="menu-title">Users</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="users">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item">
+                  <RouterLink class="nav-link" to="users-list">Users List</RouterLink>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#permissions" aria-expanded="false" aria-controls="permissions">
               <i class="menu-icon mdi mdi-floor-plan"></i>
               <span class="menu-title">Permissions</span>

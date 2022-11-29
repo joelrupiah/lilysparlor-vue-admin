@@ -33,6 +33,22 @@ const routes = [
     }
   },
   {
+    path: '/users-list',
+    name: 'UsersList',
+    component: () => import('../components/pages/users/UsersList.vue'),
+    meta: {
+      requiresAdminAuth: true
+    }
+  },
+  {
+    path: '/show-history/:id',
+    name: 'ShowHistory',
+    component: () => import('../components/pages/users/ShowHistory.vue'),
+    meta: {
+      requiresAdminAuth: true
+    }
+  },
+  {
     path: '/permissions-list',
     name: 'PermissionList',
     component: () => import('../components/pages/spatie/permission/PermissionList.vue'),

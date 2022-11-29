@@ -147,7 +147,7 @@
         </div>
     </div>
 </template>
-    
+
 <script>
 import {
     mapActions,
@@ -251,10 +251,9 @@ export default {
     },
 }
 </script>
-    
+
 <style>
 .ck-editor__editable {
     min-height: 100px;
 }
 </style>
-  

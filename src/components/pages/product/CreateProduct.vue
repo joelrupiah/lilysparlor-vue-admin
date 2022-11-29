@@ -148,7 +148,7 @@
         </div>
     </div>
 </template>
-  
+
 <script>
 import Api from '../../../requests/Api'
 import {
@@ -271,4 +271,3 @@ export default {
     min-height: 100px;
 }
 </style>
-  
