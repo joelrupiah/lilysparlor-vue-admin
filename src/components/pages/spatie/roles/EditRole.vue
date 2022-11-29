@@ -46,7 +46,7 @@
 </template>
 
 <script>
-import Axios from 'axios'
+import Api from '../../../../requests/Api'
 export default {
     name: 'EditRole',
     data() {
@@ -58,13 +58,13 @@ export default {
     },
     methods: {
         getRole(){
-            Axios.get('http://127.0.0.1:8000/api/admin/get-role/' + this.$route.params.id)
+            Api().get('/admin/get-role/' + this.$route.params.id)
                 .then((response) => {
                     console.log(response)
                 })
         },
         updateRole(){
-            Axios.post('http://127.0.0.1:8000/api/admin/create-role', this.form)
+            Api().post('/admin/create-role', this.form)
                 .then((response) => {
                     console.log(response)
                 })

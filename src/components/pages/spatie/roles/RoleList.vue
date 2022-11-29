@@ -71,20 +71,21 @@
 </template>
 
 <script>
-import Axios from 'axios'
+import Api from '../../../../requests/Api'
 import moment from "moment"
 
 export default {
     name: 'RoleList',
     data() {
         return {
+            moment: moment,
             roles: [],
         }
     },
     methods: {
 
         getRoles() {
-            Axios.get('http://127.0.0.1:8000/api/admin/get-roles')
+            Api().get('/admin/get-roles')
                 .then((response) => {
                     this.roles = response.data.roles
                 })

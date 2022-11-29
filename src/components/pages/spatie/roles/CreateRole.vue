@@ -56,7 +56,7 @@
 </template>
 
 <script>
-import Axios from 'axios'
+import Api from '../../../../requests/Api'
 export default {
     name: 'CreateRole',
     data() {
@@ -70,13 +70,13 @@ export default {
     },
     methods: {
         getPermissions() {
-            Axios.get('http://127.0.0.1:8000/api/admin/get-permissions')
+            Api().get('admin/get-permissions')
                 .then((response) => {
                     this.permissions = response.data.permissions
                 })
         },
         createRole() {
-            Axios.post('http://127.0.0.1:8000/api/admin/create-role', this.form)
+            Api().post('admin/create-role', this.form)
                 .then((response) => {
                     console.log(response)
                 })
