@@ -25,7 +25,7 @@ export default {
     let response = ''
     try {
       response = await Api().get(`/admin/get-single-service/${payload}`)
-      console.log(response)
+      // console.log(response)
       return response
     }
     catch (error) {
