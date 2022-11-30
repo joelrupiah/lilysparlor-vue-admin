@@ -1,5 +1,6 @@
 <template>
     <div class="content-wrapper">
+    <notifications position="top right" class="mt-3" group="delete_service" />
       <div class="row">
         <div class="col-md-12 grid-margin stretch-card">
           <div class="card">
@@ -94,6 +95,11 @@
           await this.$store.dispatch('service/deleteServiceAction', id)
             .then(() => {
               this.getAllServicesList()
+              this.$notify({
+                group: 'delete_service',
+                type: 'success',
+                text: 'Service deleted successfully'
+              });
             })
           this.loading = false
         },

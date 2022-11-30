@@ -5,6 +5,7 @@ import store from './store'
 
 import Vuesax from 'vuesax3'
 import ElementPlus from 'element-plus'
+import Notifications from '@kyvg/vue3-notification'
 
 import 'element-plus/dist/index.css'
 import 'vuesax3/dist/vuesax.css'
@@ -23,6 +24,7 @@ app.component('admin-master', AdminMaster)
 
 app.use(Vuesax)
 app.use(ElementPlus)
+app.use(Notifications)
 
 // app.use(mavonEditor)
 
